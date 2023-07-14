@@ -1,11 +1,7 @@
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.type === 'validateLinks') {
-      var nonRelevantLinks = request.links;
-      var addresses = Array.from(document.getElementsByTagName('address'));
-      var addressContent = addresses.length > 0 ? addresses[0].textContent.trim() : '';
-  
-      validateLinkStatus(nonRelevantLinks).then(function(links) {
-        sendResponse({ nonRelevantLinks: links, addressContent: addressContent });
+      validateLinkStatus(request.links).then(function(links) {
+        sendResponse({ nonRelevantLinks: links });
       });
       return true; // Keep the message channel open for asynchronous response
     }
