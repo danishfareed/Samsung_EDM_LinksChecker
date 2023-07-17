@@ -102,8 +102,12 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
       }
       
       var addresses = document.getElementsByTagName('address');
+      console.log("address: "+addresses);
         if (addresses.length > 0) {
-        addressContent = addresses[0].textContent.trim();
+            console.log("address: "+addresses);
+            addressContent = addresses[0].textContent.trim();
+        }else{
+            addressContent = 0;
         }
 
     sendResponse({ nonRelevantLinks: nonRelevantLinks, addressContent: addressContent });
