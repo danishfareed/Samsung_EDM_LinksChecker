@@ -109,5 +109,28 @@
     margin-bottom: 10px;
     width: calc(33.33% - 20px);
   }
+  #hoverBox {
+    position: absolute;
+    display: none;
+    background-color: #f1f1f1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+  }
   
+  #enableInspect {
+    display: block;
+    margin: 10px auto;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
   
+  #enableInspect.enabled {
+    background-color: #4CAF50;
+  }
