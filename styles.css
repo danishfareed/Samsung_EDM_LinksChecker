@@ -115,8 +115,8 @@
 .switch {
     display: inline-block;
     position: relative;
-    width: 60px;
-    height: 34px;
+    width: 30px;
+    height: 17px;
   }
   
   .switch input {

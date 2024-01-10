@@ -89,7 +89,15 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             'https://samsung.com/iq_ar/info/legal/',
             'https://samsung.com/iq_ar/privacy-policy/',
             'https://samsung.com/iq_ar/info/contactus/',
-            'https://samsung-crm.com/mena/unsubscribe/selv/Ar/iraq/optout.html'        ]
+            'https://samsung-crm.com/mena/unsubscribe/selv/Ar/iraq/optout.html'
+          ],
+          TURKEY: [
+            'https://www.samsung.com/tr/',
+            'https://samsung.com/tr/',
+            'https://samsung.com/tr/info/legal/',
+            'https://samsung.com/tr/privacy-policy/',
+            'https://samsung.com/tr/info/contactus/',
+            ]
       };
   
       var links = document.getElementsByTagName('a');
