@@ -77,7 +77,13 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             'https://twitter.com/SamsungLEVANT',
             'https://youtube.com/user/SamsungLEVANT',
             'https://instagram.com/samsunglevant/',
-            'https://samsung-crm.com/mena/unsubscribe/selv/En/lebanon/optout.html'
+            'https://samsung-crm.com/mena/unsubscribe/selv/En/lebanon/optout.html',
+            'http://samsung.com/lb/info/legal/',
+            'http://samsung.com/lb/info/privacy/',
+            'http://samsung.com/lb/info/contactus/',
+            'https://samsung.com/lb/info/legal/',
+            'https://samsung.com/lb/info/privacy/',
+            'https://samsung.com/lb/info/contactus/'
         ],
         IRAQ: [
             'https://samsung.com/iq_ar/',
@@ -99,21 +105,21 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             'https://samsung.com/tr/info/contactus/',
             ]
       };
-  
+
       var links = document.getElementsByTagName('a');
       var nonRelevantLinks = [];
-  
+
       for (var i = 0; i < links.length; i++) {
         var link = links[i].href.replace(/(https?:\/\/)?(www\.)/, '$1');
         var isRelevant = relevantURLs[request.market].some(function(url) {
           return link.startsWith(url);
         });
-  
+
         if (!isRelevant) {
           nonRelevantLinks.push(link);
         }
       }
-      
+
       var addresses = document.getElementsByTagName('address');
       console.log("address: "+addresses);
         if (addresses.length > 0) {
@@ -166,6 +172,7 @@ function showAttributesTooltip(event) {
     tooltip.style.top = `${event.clientY + 10}px`;
     tooltip.style.left = `${event.clientX + 10}px`;
     tooltip.style.backgroundColor = '#f9f9f9';
+    tooltip.style.color = '#000001';
     tooltip.style.border = '1px solid #ccc';
     tooltip.style.padding = '5px';
     tooltip.style.zIndex = '9999';

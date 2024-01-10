@@ -26,11 +26,11 @@
     }
     
    
-    h1,h2,h3,h4,h5,h6 {
+.samsung-edm-links-checker h1,h2,h3,h4,h5,h6 {
         font-family:'Samsung Sharp Sans', arial, Helvetica, sans-serif;
     }
   /* Check links button styling */
-  #checkLinks {
+  .samsung-edm-links-checker #checkLinks {
     display: block;
     margin-top: 10px;
     padding: 10px 20px;
@@ -41,11 +41,11 @@
     cursor: pointer;
   }
 
-  #checkLinks:hover {
+  .samsung-edm-links-checker #checkLinks:hover {
     background-color: #1f2937d0;
   }
   /* Add the following styles to styles.css */
-#results {
+  .samsung-edm-links-checker #results {
   width: 100%;
   height: 300px;
   padding: 10px;
@@ -58,7 +58,7 @@
   border: 1px solid #ccc;
 }
 
-#results a {
+.samsung-edm-links-checker #results a {
   color: #fff;
   text-decoration: underline;
 }
@@ -89,7 +89,7 @@
     margin-right: 5px;
   }
   
-  #results a {
+  .samsung-edm-links-checker #results a {
     font-size: 12px;
   }
   .flag-icon {
@@ -97,12 +97,12 @@
     height: 16px;
     margin-right: 5px;
   }
-  #markets {
+  .samsung-edm-links-checker #markets {
     display: flex;
     flex-wrap: wrap;
   }
   
-  label {
+  .samsung-edm-links-checker #markets label {
     display: flex;
     align-items: center;
     margin-right: 20px;
@@ -112,20 +112,20 @@
   
 
   /* New CSS for the toggle switch */
-.switch {
+  .samsung-edm-links-checker .switch {
     display: inline-block;
     position: relative;
     width: 30px;
     height: 17px;
   }
   
-  .switch input {
+  .samsung-edm-links-checker .switch input {
     opacity: 0;
     width: 0;
     height: 0;
   }
   
-  .slider {
+  .samsung-edm-links-checker .slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -137,7 +137,7 @@
     transition: .4s;
   }
   
-  .slider:before {
+  .samsung-edm-links-checker .slider:before {
     position: absolute;
     content: "";
     height: 10px;
@@ -149,25 +149,25 @@
     transition: .4s;
   }
   
-  input:checked + .slider {
+  .samsung-edm-links-checker input:checked + .slider {
     background-color: #2196F3;
   }
   
-  input:focus + .slider {
+  .samsung-edm-links-checker input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
   }
   
-  input:checked + .slider:before {
+  .samsung-edm-links-checker input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
   }
   
   /* Rounded sliders */
-  .slider.round {
+  .samsung-edm-links-checker .slider.round {
     border-radius: 34px;
   }
   
-  .slider.round:before {
+  .samsung-edm-links-checker .slider.round:before {
     border-radius: 50%;
   }
