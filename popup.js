@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       checkEverestTag();
     });
+    
 
   });
   
@@ -125,3 +126,23 @@ function extractLinks(htmlContent) {
   
   // Add tab update listener
   chrome.tabs.onUpdated.addListener(handleTabUpdate);
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var enableInspectToggle = document.getElementById('enableInspect');
+    
+    // Initialize the form with the user's option settings
+    chrome.storage.sync.get("enableInspect", function (data) {
+      enableInspectToggle.checked = Boolean(data.enableInspect);
+    });
+  
+    enableInspectToggle.addEventListener("change", function (event) {
+      var enableInspect = event.target.checked;
+      chrome.storage.sync.set({ enableInspect: enableInspect });
+  
+      // Send a message to content.js to enable or disable inspect mode
+      chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        var tab = tabs[0];
+        chrome.tabs.sendMessage(tab.id, { enableInspect: enableInspect });
+      });
+    });
+  });

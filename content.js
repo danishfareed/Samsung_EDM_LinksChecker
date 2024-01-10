@@ -34,7 +34,10 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             'https://vm.tiktok.com/ZSeXftYsp/',
             'https://twitter.com/SamsungIsrael/',
             'https://samsung-crm.com/mena/unsubscribe/SEIL/he/optout.html',
-            
+            'http://samsung.com/il/info/legal/',
+            'http://samsung.com/il/info/privacy/',
+            'http://samsung.com/il/info/contactus/',
+            'mailto: crm_il@samsung.com'
         ],
         SEEG: [
             'https://samsung.com/eg/',
@@ -116,3 +119,64 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 
     }
   });
+
+  /**tooltip code starts */
+
+  let enableInspect = false;
+
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+  if (message.enableInspect !== undefined) {
+    enableInspect = message.enableInspect;
+    if (enableInspect) {
+      attachEventListeners();
+    } else {
+      removeEventListeners();
+    }
+  }
+});
+
+function attachEventListeners() {
+  document.addEventListener('mouseover', showAttributesTooltip);
+  document.addEventListener('mouseout', hideAttributesTooltip);
+}
+
+function removeEventListeners() {
+  document.removeEventListener('mouseover', showAttributesTooltip);
+  document.removeEventListener('mouseout', hideAttributesTooltip);
+}
+
+function showAttributesTooltip(event) {
+  if (!enableInspect) return;
+
+  const target = event.target;
+  const attributes = Array.from(target.attributes);
+
+  const tooltip = document.createElement('div');
+  tooltip.classList.add('tooltip');
+  tooltip.id = 'linkTooltip';
+    tooltip.style.position = 'fixed';
+    tooltip.style.top = `${event.clientY + 10}px`;
+    tooltip.style.left = `${event.clientX + 10}px`;
+    tooltip.style.backgroundColor = '#f9f9f9';
+    tooltip.style.border = '1px solid #ccc';
+    tooltip.style.padding = '5px';
+    tooltip.style.zIndex = '9999';
+
+  for (const attribute of attributes) {
+    const attributeElement = document.createElement('div');
+    attributeElement.textContent = `${attribute.name}: ${attribute.value}`;
+    tooltip.appendChild(attributeElement);
+  }
+
+  tooltip.style.top = event.clientY + 'px';
+  tooltip.style.left = event.clientX + 'px';
+
+  document.body.appendChild(tooltip);
+}
+
+function hideAttributesTooltip() {
+  const tooltip = document.querySelector('.tooltip');
+  if (tooltip) {
+    tooltip.remove();
+  }
+}
