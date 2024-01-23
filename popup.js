@@ -35,7 +35,15 @@ document.addEventListener('DOMContentLoaded', function() {
         var extractedEverestTags = extractEverestTags(htmlContent);
         // Example: Display the extracted links
         console.log({extractedEverestTags});
-        document.getElementById("results").innerHTML = 'Everest Tags Found:'+ extractedEverestTags.join('\n');
+        var resultContainer = document.getElementById("results");
+
+        if (extractedEverestTags.length === 0) {
+            // If the array is empty, display "none"
+            resultContainer.innerHTML = '<strong>Everest Tags Found:</strong><br>None!<br><br>';
+        } else {
+            // If the array is not empty, display the joined tags
+            resultContainer.innerHTML = '<strong>Everest Tags Found:</strong><br><br>' + extractedEverestTags.join('\n\n');
+        }
       });
     });
   }
@@ -60,22 +68,18 @@ document.addEventListener('DOMContentLoaded', function() {
     var resultsDiv = document.getElementById('results');
   
     var address = addressContent
-      ? '<div class="address-container"><h4>Address in EDM:</h4><p>' + addressContent + '</p></div>'
+      ? '<br><br><div class="address-container"><h4>Address in EDM:</h4><p>' + addressContent + '</p></div><br><br>'
       : '<div class="address-container"><h4>Address not available</h4></div>';
-  console.log(nonRelevantLinks)
+    console.log(nonRelevantLinks)
     if (nonRelevantLinks.length > 0) {
-      var linksHTML = '<span style="font-weight: bold;">Non Relevant Links:</span><br>';
+      var linksHTML = '<br><br><h4 class="result_title" style="font-weight: bold;">Non Relevant Links:</h4>';
       linksHTML += nonRelevantLinks
-        .map(function(link, index) {
+        .map(function (link, index) {
           var linkURL = link.replace(/(https?:\/\/)?(www\.)/, '$1');
           return (
-            '<div class="result-link"><span class="link-number">' +
+            '<div class="result_link"><span class="link_number">' +
             (index + 1) +
-            '.</span> <a class="typing-animation" href="' +
-            linkURL +
-            '">' +
-            linkURL +
-            '</a></div>'
+            '.</span> <a class="link typing_animation" href="' + linkURL + '">' + linkURL + '</a></div>'
           );
         })
         .join('');
@@ -111,6 +115,7 @@ function extractLinks(htmlContent) {
     return extractedLinks;
   }
   
+
   // Function to handle tab update
   function handleTabUpdate(tabId, changeInfo, tab) {
     if (changeInfo.status === "complete" && tab.active) {

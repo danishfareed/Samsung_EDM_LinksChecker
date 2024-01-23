@@ -1,77 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Samsung EDM Links Checker</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <script src="popup.js"></script>
-  <style>
-   
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung</title>
+    <script src="popup.js"></script>
+    <link rel="stylesheet" href="./styles.css">
 </head>
-<body style="min-width: 500px;" class="samsung-edm-links-checker">
-  <h1>Samsung EDM Links Checker</h1>
-  <div id="markets">
-    <label>
-      <input type="radio" name="market" value="SESAR">
-      <img src="/country_icons/saudi.png" alt="KSA Flag" class="flag-icon">
-      <span class="radio-label">SESAR (KSA)</span>
-    </label>
-    <label>
-      <input type="radio" name="market" value="SEPAK">
-      <img src="/country_icons/pakistan.png" alt="KSA Flag" class="flag-icon">
-      <span class="radio-label">SEPAK (Pakistan)</span>
-    </label>
-    <label>
-      <input type="radio" name="market" value="SEIL">
-      <img src="/country_icons/israel.png" alt="SEIL Flag" class="flag-icon">
-      <span class="radio-label">SEIL (Israel)</span>
-    </label>
-    <label>
-      <input type="radio" name="market" value="SEEG">
-      <img src="/country_icons/egypt.png" alt="SEEG Flag" class="flag-icon">
-      <span class="radio-label">SEEG (Egypt)</span>
-    </label>
-    <label>
-      <input type="radio" name="market" value="SEMAG">
-      <img src="/country_icons/morocco.png" alt="KSA Flag" class="flag-icon">
-      <span class="radio-label">SEMAG (Morocco)</span>
-    </label>
-    <label>
-      <input type="radio" name="market" value="JORDAN">
-      <img src="/country_icons/jordan.png" alt="JORDAN Flag" class="flag-icon">
-      <span class="radio-label">JORDAN</span>
-    </label>
-    <label>
-      <input type="radio" name="market" value="LEBANON">
-      <img src="/country_icons/lebanon.png" alt="LEBANON Flag" class="flag-icon">
-      <span class="radio-label">LEBANON</span>
-    </label>
-    <label>
-      <input type="radio" name="market" value="IRAQ">
-      <img src="/country_icons/iraq.png" alt="IRAQ Flag" class="flag-icon">
-      <span class="radio-label">IRAQ</span>
-    </label>
-    <label>
-      <input type="radio" name="market" value="TURKEY">
-      <img src="/country_icons/turkey.png" alt="TURKEY Flag" class="flag-icon">
-      <span class="radio-label">TURKEY</span>
-    </label>
-  </div>
-  <div class="container">
-    <h3>Link Attribute Tooltip</h3>
-    <p>Hover over any link to see its attributes:</p>
-    <label class="switch">
-      <input type="checkbox" id="enableInspect">
-      <span class="slider round"></span>
-    </label>
-  </div>
-  <button id="checkLinks">Check Links</button>
-  
-  <h3>Scan Results</h3>
-  <div id="results"></div>
-  <div id="linkTooltip" style="display: none; position: absolute; background-color: #f9f9f9; border: 1px solid #ccc; padding: 5px;"></div>
-  <div id="credits">
-    <p>Credits to <a href="https://github.com/danishfareed/">Danish</a></p>
-  </div>
+
+
+<body id="samsung_edm_links_checker">
+    <!-- NAVBAR WITH LOGO -->
+    <nav class="logo_banner">
+        <h1 class="logo">EDM Links Checker | Samsung</h1>
+    </nav>
+
+    <div class="container">
+        <!-- SELECTOR SECTION -->
+        <div class="selector_section">
+            <div class="country_selector">
+                <div class="section_title pb-5">
+                    <h4 class="title">Choose country</h4>
+                    <p class="desc">Select a country you wish to check links for</p>
+                </div>
+                <div class="selector">
+                    <!-- LABEL TAB -->
+                    <label>
+                        <input type="radio" name="market" class="radio_custom" value="JORDAN">
+                        <span class="radio-label">Jordan</span>
+                    </label>
+
+                    <!-- LABEL TAB -->
+                    <label>
+                        <input type="radio" name="market" class="radio_custom" value="IRAQ">
+                        <span class="radio-label">Iraq</span>
+                    </label>
+
+                    <!-- LABEL TAB -->
+                    <label>
+                        <input type="radio" name="market" class="radio_custom" value="LEBANON">
+                        <span class="radio-label">Lebanon</span>
+                    </label>
+
+                    <!-- LABEL TAB -->
+                    <label>
+                        <input type="radio" name="market" class="radio_custom" value="SEEG">
+                        <span class="radio-label">Egypt</span>
+                    </label>
+
+                    <!-- LABEL TAB -->
+                    <label>
+                        <input type="radio" name="market" class="radio_custom" value="SEIL">
+                        <span class="radio-label">Israel</span>
+                    </label>
+
+                    <!-- LABEL TAB -->
+                    <label>
+                        <input type="radio" name="market" class="radio_custom" value="SEMAG">
+                        <span class="radio-label">Morocco</span>
+                    </label>
+
+                    <!-- LABEL TAB -->
+                    <label>
+                        <input type="radio" name="market" class="radio_custom" value="SEPAK">
+                        <span class="radio-label">Pakistan</span>
+                    </label>
+
+                    <!-- LABEL TAB -->
+                    <label>
+                        <input type="radio" name="market" class="radio_custom" value="SEPAK">
+                        <span class="radio-label">Tunesia</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="tooltip_selector">
+                <div class="section_title pb-10">
+                    <h4 class="title">Tooltip on/off</h4>
+                    <p class="desc">Toggle to view attributes on hover</p>
+                </div>
+
+                <div class="toggler">
+                    <input type="checkbox" id="enableInspect">
+                </div>
+            </div>
+
+            <div class="cta">
+                <button id="checkLinks">Validate</button>
+            </div>
+
+        </div>
+
+        <!-- RESULTS SECTION -->
+        <div class="result_section">
+            <div id="results">
+                <h5 class="terminal_text">Terminal Ready:-$ <span>&nbsp;</span></h5>
+            </div>
+            <div id="linkTooltip"></div>
+        </div>
+
+        <div class="credits_section">
+            <div class="credit_1"><a href="https://github.com/danishfareed/" target="_blank">
+                    <p>🧠 by Danish</p>
+                </a></div>
+            <div class="credit_2"><a href="https://github.com/SuhemBali/" target="_blank">
+                    <p>✨ by Suhem</p>
+                </a></div>
+        </div>
+    </div>
 </body>
+
 </html>
